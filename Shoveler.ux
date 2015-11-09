@@ -1,0 +1,31 @@
+<ScrollView AllowedScrollDirections="Vertical"><!-- CONTENT SCROLLVIEW -->
+    <StackPanel Height="1000" Alignment="Top" Margin="0,62,0,0">
+    	<Title>
+    		Shoveler Title Goes Here
+    	</Title>
+		<ScrollView AllowedScrollDirections="Horizontal" Padding="24,0,0,0" Alignment="Top">
+    		<Grid RowCount="2" ColumnCount="5" Margin="0,10,0,0" Alignment="Top" MinWidth="800">
+    	    	<coverArt File="Assets/61VrXXqyR-L._SL.jpg" />
+    	    	<coverArt File="Assets/51QRBIUAdxL._SL.jpg" />
+    	    	<coverArt File="Assets/61LdvZa6UeL._SL.jpg" />
+    	    	<coverArt File="Assets/61RAIxMKd9L._SL.jpg" />
+                <coverArt File="Assets/510uk+qhvOL._SL.jpg" />
+                <infoBox>
+    	    	   <Text TextColor="#f5f5f5" Padding="10,10,0,0">ASIN 1 Info</Text>
+                </infoBox>
+                <infoBox>
+                   <Text TextColor="#f5f5f5" Padding="10,10,0,0">ASIN 2 Info</Text>
+                </infoBox>
+                <infoBox>
+                   <Text TextColor="#f5f5f5" Padding="10,10,0,0">ASIN 3 Info</Text>
+                </infoBox>
+                <infoBox>
+                   <Text TextColor="#f5f5f5" Padding="10,10,0,0">ASIN 4 Info</Text>
+                </infoBox>
+                <infoBox>
+                   <Text TextColor="#f5f5f5" Padding="10,10,0,0">ASIN 5 Info</Text>
+                </infoBox>
+	    	    </Grid>
+    		</ScrollView>
+    </StackPanel>
+</ScrollView><!-- /CONTENT SCROLLVIEW -->
