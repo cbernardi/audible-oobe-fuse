@@ -47,16 +47,19 @@
 
 	<Font File="Amazon_Ember_Lt.ttf" ux:Global="Light" />
 	<Font File="Amazon_Ember_Rg.ttf" ux:Global="Reg" />
+    <Font File="Amazon_Ember_Bd.ttf" ux:Global="Bold" />
 
-    <Text ux:Class="Header" FontSize="36" Font="Light" TextColor="#ffffff" Margin="24,14,14,36" TextWrapping="Wrap" Width="80%" Alignment="Left" />
-	<Text ux:Class="Title" FontSize="20" Font="Reg" TextColor="#f5f5f5" Margin="24,14,14,24" TextWrapping="Wrap" />
+    <Text ux:Class="Header" FontSize="28" Font="Light" TextColor="#ffffff" Margin="24,14,14,36" TextWrapping="Wrap" Width="90%" Alignment="Left" />
+	<Text ux:Class="Title" FontSize="18" Font="Bold" TextColor="#f5f5f5" Margin="24,10,14,10" TextWrapping="Wrap" />
     <Text ux:Class="modalTitle" FontSize="20" Font="Reg" TextColor="#f5f5f5" Margin="24,24,14,24" TextWrapping="Wrap" />
     <Text ux:Class="Link" FontSize="14" Font="Reg" TextColor="#00A5E2" />
     <Text ux:Class="regText" FontSize="16" Font="Light" TextColor="255,255,255,0.9" Margin="24,0,0,24" TextWrapping="Wrap" />
-    <Text ux:Class="flatButton" FontSize="14" Font="Reg" TextColor="#FCA400" TextAlignment="Center" Margin="24,0,14,24" Padding="4,6,6,4" MinWidth="88" Height="36" Alignment="BottomRight" />
+    <Text ux:Class="flatButton" FontSize="14" Font="Reg" TextColor="#FCA400" TextAlignment="Center" Margin="24,24,14,24" Padding="4,6,6,4" MinWidth="88" Height="36" Alignment="BottomRight" />
 
 	<Image ux:Class="coverArt" Alignment="Top" MinWidth="150" MinHeight="150" />
+
 	<Rectangle ux:Class="infoBox" Alignment="Bottom" Background="#2F2F2F" MinWidth="150" MinHeight="100" />
+
 	<DockPanel>
         <StatusBarBackground Dock="Top" />
         <Rectangle ux:Name="modal" Fill="0,0,0,0.6" Visibility="Hidden" Width="100%" Height="100%">
@@ -84,25 +87,48 @@
             <Image File="Assets/oobe-header-sml._V312595826_.jpg" />
             <Grid RowCount="1" ColumnCount="4" Background="#232323">
                 <Image File="Assets/612aa2ae2tL._SL150_.jpg" Padding="15">
-                    <Circle Height="40" Width="40" Fill="0,0,0,0.75">
-                        <Circle ux:Name="play" Height="28" Width="28" Fill="#fff" StartAngleDegrees="140" EndAngleDegrees="220" Alignment="Right" Margin="5, 0, 0, 0" Padding="10, 0, 0, 0" />
-                        <Tapped>
-                            <Callback Handler="{playSound}" />
-                            <Change Target="play.Visibility" Value="Hidden" />
-                        </Tapped>
-                    </Circle>
+                    <Image ux:Name="PlayIcon" File="Assets/play.png" Height="48" Width="48" Visibility="Visible" Alignment="BottomLeft" Margin="5, 0, 0, 5" />
+                    <Tapped>
+                        <Callback Handler="{playSound}" />
+                        <Change Target="PlayIcon.Visibility" Value="Hidden" />
+                    </Tapped>
+                    <Image ux:Name="StopIcon" File="Assets/stop.png" Height="48" Width="48" Visibility="Visible" />
                 </Image>
-                <Image File="Assets/61YSSnYqYXL._SL150_.jpg" Padding="15" />
-                <Image File="Assets/4172SE4YxhL._SL150_.jpg" Padding="15" />
-                <Image File="Assets/61rZON4AiSL._SL150_.jpg" Padding="15" />
+                <Image File="Assets/61YSSnYqYXL._SL150_.jpg" Padding="15">
+                    <Image ux:Name="PlayIcon" File="Assets/play.png" Height="48" Width="48" Visibility="Visible" Alignment="BottomLeft" Margin="5, 0, 0, 5" />
+                    <Tapped>
+                        <Callback Handler="{playSound}" />
+                        <Change Target="PlayIcon.Visibility" Value="Hidden" />
+                    </Tapped>
+                </Image>
+                <Image File="Assets/4172SE4YxhL._SL150_.jpg" Padding="15">
+                    <Image ux:Name="PlayIcon" File="Assets/play.png" Height="48" Width="48" Visibility="Visible" Alignment="BottomLeft" Margin="5, 0, 0, 5" />
+                    <Tapped>
+                        <Callback Handler="{playSound}" />
+                        <Change Target="PlayIcon.Visibility" Value="Hidden" />
+                    </Tapped>
+                </Image>
+                <Image File="Assets/61rZON4AiSL._SL150_.jpg" Padding="15">
+                    <Image ux:Name="PlayIcon" File="Assets/play.png" Height="48" Width="48" Visibility="Visible" Alignment="BottomLeft" Margin="5, 0, 0, 5" />
+                    <Tapped>
+                        <Callback Handler="{playSound}" />
+                        <Change Target="PlayIcon.Visibility" Value="Hidden" />
+                    </Tapped>
+                </Image>
             </Grid>
 
-        	<Header>Listen to a great book. Transform your day.</Header>
+        	<Header>3 free audiobooks when you try Audible for 3 months</Header>
             <Title>
-                Bestsellers &amp; new releases performed by the world’s finest actors &amp; narrators. Already on your Fire. Your 2 Free Audiobooks are yours forever–a $29 value. After 30 days, membership renews at $14.95 a month. 
+                Bestsellers &amp; new releases performed by the world’s finest actors &amp; narrators. 
+            </Title>
+            <Title>
+                After 3 months, membership renews at $14.95/month
+            </Title>
+            <Title>
+                Choose from 180,000+ best sellers, new releases, and more
             </Title>
 
-            <PurchaseButton Width="175" Alignment="Left">
+            <PurchaseButton Width="175" Alignment="Right" Margin="24,38,14,24">
                 <pButtonText>START MY FREE TRIAL</pButtonText>
                 <Tapped>
                     <DebugAction Message="Rectangle got clicked" />
@@ -110,7 +136,7 @@
                     <!-- <BringIntoView TargetNode="modal" /> -->
                 </Tapped>
             </PurchaseButton>
-            <Link Alignment="Left" Margin="235,-26,0,30">No thanks
+            <Link Alignment="Right" Margin="0,0,24,30">No thanks
                 <Tapped>
                     <DebugAction Message="Get me outta here" />
                     <Callback Handler="{appLaunch}" />

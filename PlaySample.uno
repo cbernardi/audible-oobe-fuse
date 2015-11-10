@@ -48,6 +48,7 @@ public class PlaySample : NativeModule
 
         else if defined(Android) 
         {
+            MediaPlayer mediaPlayer = new MediaPlayer();
             mediaPlayer.stop();
         }
 
