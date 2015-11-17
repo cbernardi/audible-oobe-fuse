@@ -19,6 +19,10 @@ function appLaunch () {
 //     InterApp.lunchUri ('com.amazon.firelauncher/.Launcher}')
 // }
 
+function closeApp() {
+    android.os.Process.killProcess(android.os.Process.myPid());
+}
+
 var PlaySample = require("PlaySample");
 
     function playSound(){
@@ -35,6 +39,7 @@ module.exports = {
     billingStart: billingStart,
     appLaunch: appLaunch,
     playSound: playSound,
-    stopSample: stopSample
+    stopSample: stopSample,
+    closeApp: closeApp,
 };
 

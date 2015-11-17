@@ -24,7 +24,7 @@
 
 	<DockPanel>
         <StatusBarBackground Dock="Top" />
-        <Rectangle ux:Name="modal" Fill="0,0,0,0.6" Visibility="Hidden" Width="100%" Height="100%">
+        <Rectangle ux:Name="modal" Fill="0,0,0,0.6" Visibility="Hidden" Width="800" Height="1280">
             <Rectangle Height="365" Width="448" CornerRadius="2" Fill="#303030">
                 <StackPanel>
                     <modalTitle>Your free Audible trial has begun!</modalTitle>
@@ -91,14 +91,13 @@
                 <pButtonText>START MY FREE TRIAL</pButtonText>
                 <Tapped>
                     <DebugAction Message="Rectangle got clicked" />
-                    <Set Target="modal.Visibility" Value="Visible" />
-                    <!-- <BringIntoView TargetNode="modal" /> -->
+                    <Set modal.Visibility="Visible" />
                 </Tapped>
             </PurchaseButton>
             <Link Alignment="Left" Margin="16, 0, 24, 30">No, thanks.
                 <Tapped>
                     <DebugAction Message="Get me outta here" />
-                    <Callback Handler="{appLaunch}" />
+                    <Callback Handler="{closeApp}" />
                 </Tapped>
             </Link>
             <Image File="Assets/logo.png" Alignment="CenterRight" Height="36" Margin="-200, -95, 16, 50" />
