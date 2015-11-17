@@ -1,56 +1,18 @@
 <App Theme="Basic" Background="#1D1D1D">
 
     <PlaySample ux:Global="PlaySample" />
+
+    <JavaScript File="app.js" />
     
-    <JavaScript>
-        var currentDate = new Date()
-        var day = currentDate.getDate()
-        var month = currentDate.getMonth() + 1
-        var year = currentDate.getFullYear()
-        var today = ((month +1) + "/" + day + "/" + year)
-        var billingStart = ("Your first billing date will be " + today)
-
-        console.log(month)
-        console.log(billingStart)
-
-        var InterApp = require('FuseJS/InterApp');
-        function appLaunch () {
-            debug_log("Launching app");
-            InterApp.launchUri ('audible://store/rawurl/TOS/index.htm#/');
-        }
-        // function homeLaunch () {
-        //     debug_log("Existing app");
-        //     InterApp.lunchUri ('com.amazon.firelauncher/.Launcher}')
-        // }
-
-       var PlaySample = require("PlaySample");
-
-            function playSound(){
-                PlaySample.samplePlayback();
-            }
-
-        var StopSample = require("PlaySample");
-
-            function stopSample() {
-                PlaySample.stopPlayback();
-            }
-
-        module.exports = {
-            billingStart: billingStart,
-            appLaunch: appLaunch,
-            playSound: playSound,
-            stopSample: stopSample
-        };
-
-    </JavaScript>
 
 
 	<Font File="Amazon_Ember_Lt.ttf" ux:Global="Light" />
 	<Font File="Amazon_Ember_Rg.ttf" ux:Global="Reg" />
     <Font File="Amazon_Ember_Bd.ttf" ux:Global="Bold" />
 
-    <Text ux:Class="Header" FontSize="28" Font="Light" TextColor="#ffffff" Margin="24,14,14,36" TextWrapping="Wrap" Width="90%" Alignment="Left" />
-	<Text ux:Class="Title" FontSize="18" Font="Bold" TextColor="#f5f5f5" Margin="24,10,14,10" TextWrapping="Wrap" />
+    <Text ux:Class="Header" FontSize="26" Font="Bold" TextColor="0,0,0,0.9" Margin="24,14,14,0" TextWrapping="Wrap" Width="50%" Alignment="BottomLeft" />
+	<Text ux:Class="Title" FontSize="18" Font="Reg" TextColor="#f5f5f5" Margin="16,30,14,0" TextWrapping="Wrap" />
+    <Text ux:Class="subTitle" FontSize="18" Font="Light" TextColor="255,255,255,0.9" Margin="16,0,24,0" TextWrapping="Wrap" />
     <Text ux:Class="modalTitle" FontSize="20" Font="Reg" TextColor="#f5f5f5" Margin="24,24,14,24" TextWrapping="Wrap" />
     <Text ux:Class="Link" FontSize="14" Font="Reg" TextColor="#00A5E2" />
     <Text ux:Class="regText" FontSize="16" Font="Light" TextColor="255,255,255,0.9" Margin="24,0,0,24" TextWrapping="Wrap" />
@@ -69,7 +31,6 @@
                     <regText>Select your 2 free audiobooks from the Audiobooks app.</regText>
                     <Image File="Assets/audible_icon_coach.png" Width="224" Margin="0,0,0,14" />
                     <regText Value="{billingStart}" />
-                    <regText>Cancel before then and you won’t be charged.</regText>
                     <flatButton>
                         OK
                         <Tapped>
@@ -84,7 +45,10 @@
         </Rectangle>
         <StackPanel>
 
-            <Image File="Assets/oobe-header-sml._V312595826_.jpg" />
+            <Image File="Assets/oobe_banner_lowres.jpg">
+                <Image File="Assets/prime_offer.png" Alignment="TopLeft" Width="225" Margin="16, 14, 0, 0" />
+                <Header Margin="16, 0, 0, 14" Opacity="0.9">Get 3 free audiobooks when you try Audible</Header>
+            </Image>
             <Grid RowCount="1" ColumnCount="4" Background="#232323">
                 <Image File="Assets/612aa2ae2tL._SL150_.jpg" Padding="15">
                     <Image ux:Name="PlayIcon" File="Assets/play.png" Height="48" Width="48" Visibility="Visible" Alignment="BottomLeft" Margin="5, 0, 0, 5" />
@@ -92,7 +56,6 @@
                         <Callback Handler="{playSound}" />
                         <Change Target="PlayIcon.Visibility" Value="Hidden" />
                     </Tapped>
-                    <Image ux:Name="StopIcon" File="Assets/stop.png" Height="48" Width="48" Visibility="Visible" />
                 </Image>
                 <Image File="Assets/61YSSnYqYXL._SL150_.jpg" Padding="15">
                     <Image ux:Name="PlayIcon" File="Assets/play.png" Height="48" Width="48" Visibility="Visible" Alignment="BottomLeft" Margin="5, 0, 0, 5" />
@@ -117,18 +80,14 @@
                 </Image>
             </Grid>
 
-        	<Header>3 free audiobooks when you try Audible for 3 months</Header>
-            <Title>
-                Bestsellers &amp; new releases performed by the world’s finest actors &amp; narrators. 
-            </Title>
-            <Title>
-                After 3 months, membership renews at $14.95/month
-            </Title>
-            <Title>
-                Choose from 180,000+ best sellers, new releases, and more
-            </Title>
+            <Title>Enjoy the benefits of Audible membership for three months.</Title>
+                <subTitle>Get 1 new audiobook each month and 30% off additional purchases.</subTitle>
+            <Title>Your first 3 audiobooks are free and yours to keep.</Title>
+                <subTitle>After 90 days, your membership renews at $14.95/month.</subTitle>
+            <Title>Exchange any audiobook you don’t love. Cancel anytime.</Title>
+                <subTitle>Audible Customer Care is available 24/7 to help.</subTitle>
 
-            <PurchaseButton Width="175" Alignment="Right" Margin="24,38,14,24">
+            <PurchaseButton Width="175" Alignment="Left" Margin="16, 42, 14, 10">
                 <pButtonText>START MY FREE TRIAL</pButtonText>
                 <Tapped>
                     <DebugAction Message="Rectangle got clicked" />
@@ -136,12 +95,13 @@
                     <!-- <BringIntoView TargetNode="modal" /> -->
                 </Tapped>
             </PurchaseButton>
-            <Link Alignment="Right" Margin="0,0,24,30">No thanks
+            <Link Alignment="Left" Margin="16, 0, 24, 30">No, thanks.
                 <Tapped>
                     <DebugAction Message="Get me outta here" />
                     <Callback Handler="{appLaunch}" />
                 </Tapped>
             </Link>
+            <Image File="Assets/logo.png" Alignment="CenterRight" Height="36" Margin="-200, -95, 16, 50" />
             <Legal />
             <Panel ux:Class="modal" Background="0,0,0,0.6" Y="1" Visibility="Hidden">
                 <Rectangle Alignment="Center" Fill="#303030" Width="448" Height="358">
