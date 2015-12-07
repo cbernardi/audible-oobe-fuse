@@ -4,6 +4,7 @@
 
     <JavaScript File="app.js" />
     
+    
 
 
 	<Font File="Amazon_Ember_Lt.ttf" ux:Global="Light" />
@@ -24,95 +25,146 @@
 
 	<DockPanel>
         <StatusBarBackground Dock="Top" />
-        <Rectangle ux:Name="modal" Fill="0,0,0,0.6" Visibility="Hidden" Width="800" Height="1280">
-            <Rectangle Height="365" Width="448" CornerRadius="2" Fill="#303030">
-                <StackPanel>
-                    <modalTitle>Your free Audible trial has begun!</modalTitle>
-                    <regText>Select your 2 free audiobooks from the Audiobooks app.</regText>
-                    <Image File="Assets/audible_icon_coach.png" Width="224" Margin="0,0,0,14" />
-                    <regText Value="{billingStart}" />
-                    <flatButton>
-                        OK
-                        <Tapped>
-                            <DebugAction Message="CAHLICK" />
-                            <Callback Handler="{appLaunch}" />
-                            <Set Target="modal.Visibility" Value="Hidden" />
-                        </Tapped>
-                    </flatButton>
-                </StackPanel>
-                <DropShadow Angle="90" Distance="4" Size="4" Spread="0.1" Color="0,0,0,0.6" />
-            </Rectangle>
-        </Rectangle>
-        <StackPanel>
-
-            <Image File="Assets/oobe_banner_lowres.jpg">
-                <Image File="Assets/prime_offer.png" Alignment="TopLeft" Width="225" Margin="16, 14, 0, 0" />
-                <Header Margin="16, 0, 0, 14" Opacity="0.9">Get 3 free audiobooks when you try Audible</Header>
-            </Image>
-            <Grid RowCount="1" ColumnCount="4" Background="#232323">
-                <Image File="Assets/612aa2ae2tL._SL150_.jpg" Padding="15">
-                    <Image ux:Name="PlayIcon" File="Assets/play.png" Height="48" Width="48" Visibility="Visible" Alignment="BottomLeft" Margin="5, 0, 0, 5" />
-                    <Tapped>
-                        <Callback Handler="{playSound}" />
-                        <Change Target="PlayIcon.Visibility" Value="Hidden" />
-                    </Tapped>
-                </Image>
-                <Image File="Assets/61YSSnYqYXL._SL150_.jpg" Padding="15">
-                    <Image ux:Name="PlayIcon" File="Assets/play.png" Height="48" Width="48" Visibility="Visible" Alignment="BottomLeft" Margin="5, 0, 0, 5" />
-                    <Tapped>
-                        <Callback Handler="{playSound}" />
-                        <Change Target="PlayIcon.Visibility" Value="Hidden" />
-                    </Tapped>
-                </Image>
-                <Image File="Assets/4172SE4YxhL._SL150_.jpg" Padding="15">
-                    <Image ux:Name="PlayIcon" File="Assets/play.png" Height="48" Width="48" Visibility="Visible" Alignment="BottomLeft" Margin="5, 0, 0, 5" />
-                    <Tapped>
-                        <Callback Handler="{playSound}" />
-                        <Change Target="PlayIcon.Visibility" Value="Hidden" />
-                    </Tapped>
-                </Image>
-                <Image File="Assets/61rZON4AiSL._SL150_.jpg" Padding="15">
-                    <Image ux:Name="PlayIcon" File="Assets/play.png" Height="48" Width="48" Visibility="Visible" Alignment="BottomLeft" Margin="5, 0, 0, 5" />
-                    <Tapped>
-                        <Callback Handler="{playSound}" />
-                        <Change Target="PlayIcon.Visibility" Value="Hidden" />
-                    </Tapped>
-                </Image>
-            </Grid>
-
-            <Title>Enjoy the benefits of Audible membership for three months.</Title>
-                <subTitle>Get 1 new audiobook each month and 30% off additional purchases.</subTitle>
-            <Title>Your first 3 audiobooks are free and yours to keep.</Title>
-                <subTitle>After 90 days, your membership renews at $14.95/month.</subTitle>
-            <Title>Exchange any audiobook you don’t love. Cancel anytime.</Title>
-                <subTitle>Audible Customer Care is available 24/7 to help.</subTitle>
-
-            <PurchaseButton Width="175" Alignment="Left" Margin="16, 42, 14, 10">
-                <pButtonText>START MY FREE TRIAL</pButtonText>
-                <Tapped>
-                    <DebugAction Message="Rectangle got clicked" />
-                    <Set modal.Visibility="Visible" />
-                </Tapped>
-            </PurchaseButton>
-            <Link Alignment="Left" Margin="16, 0, 24, 30">No, thanks.
-                <Tapped>
-                    <DebugAction Message="Get me outta here" />
-                    <Callback Handler="{closeApp}" />
-                </Tapped>
-            </Link>
-            <Image File="Assets/logo.png" Alignment="CenterRight" Height="36" Margin="-200, -95, 16, 50" />
-            <Legal />
-            <Panel ux:Class="modal" Background="0,0,0,0.6" Y="1" Visibility="Hidden">
-                <Rectangle Alignment="Center" Fill="#303030" Width="448" Height="358">
-                    <Text>Your free Audible trial has begun!</Text>
-                    <Text>Now go choose your 2 free audiobooks form the Audible Audiobooks app.</Text>
-                    <Text Value="{billingStart}" />
-                    
+        <PageControl ux:Name="pages">
+            <Page ux:Name="page1">
+                <Image File="Assets/Screenshot_2015-12-07-15-08-00.png" />
+                <Clicked>
+                    <Set pages.Active="page2" />
+                </Clicked>
+            </Page>
+            <Page ux:Name="page2">
+                <Image File="Assets/Screenshot_2015-12-07-15-08-07.png" />
+                <Clicked>
+                    <Set pages.Active="page3" />
+                </Clicked>
+            </Page>
+            <Page ux:Name="page1">
+                <Image File="Assets/Screenshot_2015-12-07-15-08-34.png" />
+                <Clicked>
+                    <Set pages.Active="page4" />
+                </Clicked>
+            </Page>
+            <Page ux:Name="page3">
+                <Image File="Assets/Screenshot_2015-12-07-09-11-43.png" />
+                <Clicked>
+                    <Set pages.Active="page5" />
+                </Clicked>
+            </Page>
+            <Page ux:Name="page4">
+                <Image File="Assets/Screenshot_2015-12-07-10-14-06.png" />
+                <Clicked>
+                    <Set pages.Active="page6" />
+                </Clicked>
+            </Page>
+            <Page ux:Name="page5">
+                <Image File="Assets/Screenshot_2015-12-07-09-11-10.png" />
+                <Clicked>
+                    <Set pages.Active="page6" />
+                </Clicked>
+            </Page>
+            <Page ux:Name="page6">
+                <Image File="Assets/Screenshot_2015-12-07-10-14-13.png" />
+                <Clicked>
+                    <Set pages.Active="page7" />
+                </Clicked>
+            </Page>
+            <Page ux:Name="page7">
+                <Image File="Assets/Screenshot_2015-12-07-10-14-19.png" />
+                <Clicked>
+                    <Set pages.Active="trial" />
+                </Clicked>
+            </Page>
+            <Page ux:Name="trial">
+                <Rectangle ux:Name="modal" Fill="0,0,0,0.6" Visibility="Hidden" Width="800" Height="1280">
+                    <Rectangle Height="365" Width="448" CornerRadius="2" Fill="#303030">
+                        <StackPanel>
+                            <modalTitle>Your free Audible trial has begun!</modalTitle>
+                            <regText>Select your 2 free audiobooks from the Audiobooks app.</regText>
+                            <Image File="Assets/audible_icon_coach.png" Width="224" Margin="0,0,0,14" />
+                            <regText Value="{billingStart}" />
+                            <flatButton>
+                                OK
+                                <Tapped>
+                                    <DebugAction Message="CAHLICK" />
+                                    <Callback Handler="{closeApp}" />
+                                    <Set Target="modal.Visibility" Value="Hidden" />
+                                </Tapped>
+                            </flatButton>
+                        </StackPanel>
+                        <DropShadow Angle="90" Distance="4" Size="4" Spread="0.1" Color="0,0,0,0.6" />
+                    </Rectangle>
                 </Rectangle>
-            </Panel>
-           
-        </StackPanel>
+                <StackPanel>
 
+                    <Image File="Assets/oobe_banner_lowres.jpg">
+                        <Image File="Assets/prime_offer.png" Alignment="TopLeft" Width="225" Margin="16, 14, 0, 0" />
+                        <Header Margin="16, 0, 0, 14" Opacity="0.9">Get 3 free audiobooks when you try Audible</Header>
+                    </Image>
+                    <Grid RowCount="1" ColumnCount="4" Background="#232323">
+                        <Image File="Assets/612aa2ae2tL._SL150_.jpg" Padding="15">
+                            <Image ux:Name="PlayIcon" File="Assets/play.png" Height="48" Width="48" Visibility="Visible" Alignment="BottomLeft" Margin="5, 0, 0, 5" />
+                            <Tapped>
+                                <Callback Handler="{playSound}" />
+                                <Change Target="PlayIcon.Visibility" Value="Hidden" />
+                            </Tapped>
+                        </Image>
+                        <Image File="Assets/61YSSnYqYXL._SL150_.jpg" Padding="15">
+                            <Image ux:Name="PlayIcon" File="Assets/play.png" Height="48" Width="48" Visibility="Visible" Alignment="BottomLeft" Margin="5, 0, 0, 5" />
+                            <Tapped>
+                                <Callback Handler="{playSound}" />
+                                <Change Target="PlayIcon.Visibility" Value="Hidden" />
+                            </Tapped>
+                        </Image>
+                        <Image File="Assets/4172SE4YxhL._SL150_.jpg" Padding="15">
+                            <Image ux:Name="PlayIcon" File="Assets/play.png" Height="48" Width="48" Visibility="Visible" Alignment="BottomLeft" Margin="5, 0, 0, 5" />
+                            <Tapped>
+                                <Callback Handler="{playSound}" />
+                                <Change Target="PlayIcon.Visibility" Value="Hidden" />
+                            </Tapped>
+                        </Image>
+                        <Image File="Assets/61rZON4AiSL._SL150_.jpg" Padding="15">
+                            <Image ux:Name="PlayIcon" File="Assets/play.png" Height="48" Width="48" Visibility="Visible" Alignment="BottomLeft" Margin="5, 0, 0, 5" />
+                            <Tapped>
+                                <Callback Handler="{playSound}" />
+                                <Change Target="PlayIcon.Visibility" Value="Hidden" />
+                            </Tapped>
+                        </Image>
+                    </Grid>
+
+                    <Title>Enjoy the benefits of Audible membership for three months.</Title>
+                        <subTitle>Get 1 new audiobook each month and 30% off additional purchases.</subTitle>
+                    <Title>Your first 3 audiobooks are free and yours to keep.</Title>
+                        <subTitle>After 90 days, your membership renews at $14.95/month.</subTitle>
+                    <Title>Exchange any audiobook you don’t love. Cancel anytime.</Title>
+                        <subTitle>Audible Customer Care is available 24/7 to help.</subTitle>
+
+                    <PurchaseButton Width="175" Alignment="Left" Margin="16, 42, 14, 10">
+                        <pButtonText>START MY FREE TRIAL</pButtonText>
+                        <Tapped>
+                            <DebugAction Message="Rectangle got clicked" />
+                            <Set modal.Visibility="Visible" />
+                        </Tapped>
+                    </PurchaseButton>
+                    <Link Alignment="Left" Margin="16, 0, 24, 30">No, thanks.
+                        <Tapped>
+                            <DebugAction Message="Get me outta here" />
+                            <Callback Handler="{closeApp}" />
+                        </Tapped>
+                    </Link>
+                    <Image File="Assets/logo.png" Alignment="CenterRight" Height="36" Margin="-200, -95, 16, 50" />
+                    <Legal />
+                    <Panel ux:Class="modal" Background="0,0,0,0.6" Y="1" Visibility="Hidden">
+                        <Rectangle Alignment="Center" Fill="#303030" Width="448" Height="358">
+                            <Text>Your free Audible trial has begun!</Text>
+                            <Text>Now go choose your 2 free audiobooks form the Audible Audiobooks app.</Text>
+                            <Text Value="{billingStart}" />
+                            
+                        </Rectangle>
+                    </Panel>
+                   
+                </StackPanel>
+        </Page>
+        </PageControl>
         <BottomBarBackground Dock="Bottom" />
     </DockPanel>
 </App>
